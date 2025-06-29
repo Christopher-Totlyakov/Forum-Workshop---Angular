@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Api } from '../api';
 import { Post } from '../types/post';
 import { Loader } from '../shared/loader/loader';
+import { error } from 'console';
 
 @Component({
   selector: 'app-posts-list',
@@ -18,10 +19,16 @@ export class PostsList implements OnInit{
     
   }
   ngOnInit(): void {
-    this.api.getPosts().subscribe((posts) => {
-      console.log(posts);
-      this.posts = posts;
-      this.isLoading = false;
+    this.api.getPosts().subscribe({
+      next: (posts: Post[]) => {
+        console.log(posts);
+        this.posts = posts;
+        this.isLoading = false;
+      },
+      error: (err) => {
+        console.error('Error fetching posts:', err);
+      }
+     
     })
   }
 

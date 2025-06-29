@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Api } from '../api';
 import { Theme } from '../types/theme';
 import { Loader } from '../shared/loader/loader';
+import { error } from 'console';
 
 @Component({
   selector: 'app-themes-list',
@@ -19,10 +20,16 @@ export class ThemesList implements OnInit {
 
   ngOnInit(): void {
     console.log('test');
-    this.api.getThemes().subscribe((themes) => {
-      console.log(themes);
-      this.themes = themes;
-      this.isLoading = false;
+    this.api.getThemes().subscribe({
+      next: (themes: Theme[]) => {
+        console.log(themes);
+        this.themes = themes;
+        this.isLoading = false;
+      },
+      error: (err) => {
+        console.error('Error fetching themes:', err);
+      }
+     
     })
   }
   
