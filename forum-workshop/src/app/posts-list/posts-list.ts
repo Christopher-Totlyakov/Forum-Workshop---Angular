@@ -1,16 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { Api } from '../api';
 import { Post } from '../types/post';
+import { Loader } from '../shared/loader/loader';
 
 @Component({
   selector: 'app-posts-list',
-  imports: [],
+  imports: [Loader],
   templateUrl: './posts-list.html',
   styleUrl: './posts-list.css'
 })
 export class PostsList implements OnInit{
  
   posts: Post[] = [];
+  isLoading: boolean = true;
+
   constructor(private api: Api) {
     
   }
@@ -18,6 +21,7 @@ export class PostsList implements OnInit{
     this.api.getPosts().subscribe((posts) => {
       console.log(posts);
       this.posts = posts;
+      this.isLoading = false;
     })
   }
 

@@ -1,8 +1,11 @@
 <main>
-                         
-    <div class="theme-title" >
-
-        @for(theme of themes; track theme) {
+    @if(isLoading) {
+        <app-loader/>
+    }
+    @else{
+        <div class="theme-title">
+        
+            @for(theme of themes; track theme) {
             <div class="theme-container">
                 <div class="theme-name-wrapper">
                     <div class="theme-name">
@@ -23,8 +26,10 @@
                         </div>
                     </div>
                 </div>
-                </div>
-        }
+            </div>
+            }
         
-    </div>
+            </div>
+    }   
+   
 </main>

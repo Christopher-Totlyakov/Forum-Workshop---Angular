@@ -1,24 +1,27 @@
+@if(isLoading) {
+<app-loader></app-loader>
+}@else {
 <aside>
     <div class="aside">
-        <h2 class="title">
-            Recent posts
-        </h2>
+        <h2 class="title">Recent posts</h2>
         <div>
             <div class="aside-theme">
-                @for(post of posts; track post) 
-                {
-                    <a href="#">
-                        <h3>{{post.themeId.themeName}}</h3>
-                        <p>{{post.userId.username}}</p>
-                        <p><span>{{post.created_at}}</span></p>
-                    </a>
+                @for(post of posts; track post) {
+                <a href="#">
+                    <h3>{{ post.themeId.themeName }}</h3>
+                    <p>{{ post.userId.username }}</p>
+                    <p>
+                        <span>{{ post.created_at }}</span>
+                    </p>
+                </a>
                 }
                 <a href="#">
                     <h3>Angular 10</h3>
                     <p>Silvester</p>
                     <p><span>2020-10-14T10:11:52.264Z</span></p>
                 </a>
-            </div>        
+            </div>
         </div>
     </div>
 </aside>
+}
