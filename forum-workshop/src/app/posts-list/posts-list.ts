@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Api } from '../api';
+import { Post } from '../types/post';
 
 @Component({
   selector: 'app-posts-list',
@@ -9,12 +10,14 @@ import { Api } from '../api';
 })
 export class PostsList implements OnInit{
  
+  posts: Post[] = [];
   constructor(private api: Api) {
     
   }
   ngOnInit(): void {
-    this.api.getPosts().subscribe((d) => {
-      console.log(d)
+    this.api.getPosts().subscribe((posts) => {
+      console.log(posts);
+      this.posts = posts;
     })
   }
 
