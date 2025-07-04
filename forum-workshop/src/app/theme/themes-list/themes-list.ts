@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Api } from '../api';
-import { Theme } from '../types/theme';
-import { Loader } from '../shared/loader/loader';
-import { error } from 'console';
+import { Api } from '../../api';
+import { Theme } from '../../types/theme';
+import { Loader } from '../../shared/loader/loader';
 
 @Component({
   selector: 'app-themes-list',

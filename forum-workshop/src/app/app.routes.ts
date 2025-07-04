@@ -5,5 +5,9 @@ export const routes: Routes = [
         path: 'user',
         loadChildren: () => import('./user/user-routing.module').then(m => m.default)
     },
+    {
+        path: 'themes',
+        loadChildren: () => import('./theme/theme-routing.module').then(m => m.default)
+    },
     
 ];
