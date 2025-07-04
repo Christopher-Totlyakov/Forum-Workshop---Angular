@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { Main } from './main/main';
 import { AddTheme } from './add-theme/add-theme';
+import { CurrentTheme } from './current-theme/current-theme';
 
 export default [
     {
@@ -9,7 +10,11 @@ export default [
         pathMatch: 'full',
     },
     {
-        path: 'add-theme',
+        path: ':id',
+        component: CurrentTheme,
+    },
+    {
+        path: 'add',
         component: AddTheme,
     },
    
