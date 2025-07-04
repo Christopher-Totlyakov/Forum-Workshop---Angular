@@ -10,12 +10,13 @@ export default [
         pathMatch: 'full',
     },
     {
-        path: ':id',
-        component: CurrentTheme,
-    },
-    {
         path: 'add',
         component: AddTheme,
     },
+    {
+        path: ':id',
+        component: CurrentTheme,
+    },
+    
    
 ] satisfies Routes;

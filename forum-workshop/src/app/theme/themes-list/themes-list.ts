@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Api } from '../../api';
 import { Theme } from '../../types/theme';
 import { Loader } from '../../shared/loader/loader';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-themes-list',
-  imports: [Loader],
+  imports: [Loader, CommonModule],
   templateUrl: './themes-list.html',
   styleUrl: './themes-list.css'
 })
