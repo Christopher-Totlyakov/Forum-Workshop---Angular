@@ -16,6 +16,11 @@ export class Api {
     return this.http.get<Theme[]>(`${apiURL}/themes`);
   }
 
+  getThemeById(themeId: string) {
+    const { apiURL } = environment;
+    return this.http.get<Theme>(`${apiURL}/themes/${themeId}`);
+  }
+
   createTheme(themeName: string, postText: string) {
     const { apiURL } = environment;
     return this.http.post<Theme>(`${apiURL}/themes`, {themeName, postText});
