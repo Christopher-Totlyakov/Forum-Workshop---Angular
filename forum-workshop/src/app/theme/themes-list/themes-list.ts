@@ -3,10 +3,12 @@ import { Api } from '../../api';
 import { Theme } from '../../types/theme';
 import { Loader } from '../../shared/loader/loader';
 import { CommonModule } from '@angular/common';
+import { WelcomeComponent } from '../../shared/welcome-component/welcome-component';
+import { UserService } from '../../user/user-service';
 
 @Component({
   selector: 'app-themes-list',
-  imports: [Loader, CommonModule],
+  imports: [Loader, CommonModule, WelcomeComponent],
   templateUrl: './themes-list.html',
   styleUrl: './themes-list.css'
 })
@@ -15,7 +17,11 @@ export class ThemesList implements OnInit {
   themes: Theme[] =[];
   isLoading: boolean = true;
   
-  constructor(private api: Api) {
+  constructor(private api: Api, private userService: UserService) {
+  }
+
+  get isLoggedIn(): boolean {
+    return this.userService.isLoggedIn;
   }
 
   ngOnInit(): void {

@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { UserService } from '../user/user-service';
+import { WelcomeComponent } from '../shared/welcome-component/welcome-component';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterModule],
+  imports: [RouterModule, WelcomeComponent],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })

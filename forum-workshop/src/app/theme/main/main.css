@@ -7,6 +7,7 @@ main {
     margin: auto;
     padding-bottom: 4.5em;
     display: flex;
+    gap : 8em;
     align-items: flex-start;
     justify-content: space-evenly;
 }
