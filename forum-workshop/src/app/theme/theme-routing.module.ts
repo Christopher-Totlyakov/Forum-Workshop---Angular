@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { Main } from './main/main';
 import { AddTheme } from './add-theme/add-theme';
 import { CurrentTheme } from './current-theme/current-theme';
+import { AuthActivate } from '../guards/auth.activate';
 
 export default [
     {
@@ -12,6 +13,7 @@ export default [
     {
         path: 'add',
         component: AddTheme,
+        canActivate: [AuthActivate],
     },
     {
         path: ':id',
