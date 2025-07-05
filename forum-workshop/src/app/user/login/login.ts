@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import {  Router, RouterModule } from '@angular/router';
 import { UserService } from '../user-service';
 
 @Component({
@@ -10,11 +10,13 @@ import { UserService } from '../user-service';
 })
 export class Login {
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private router: Router) {
   }
 
-  login(email: string, password: string) {
+  login(ev: Event, email: string, password: string) {
+    ev.preventDefault();
     this.userService.login();
-    window.location.href = '/';
+    this.router.navigate(['/home']);
+
   }
 }

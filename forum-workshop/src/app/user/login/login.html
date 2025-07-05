@@ -1,5 +1,5 @@
 <div class="container">
-    <form class="login" action="" method="post">
+    <form class="login" method="post">
 
         <fieldset>
             <h2>Login Form</h2>
@@ -26,7 +26,7 @@
                 Password must be at least 4 characters!
             </p> -->
 
-            <button (click)="login(inputEmail.value, inputPassword.value)">Login</button>
+            <button (click)="login($event, inputEmail.value, inputPassword.value)">Login</button>
 
             <p class="text-center">
                 Have an account?

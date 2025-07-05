@@ -5,12 +5,21 @@
         </div>
         <div class="mini-navbar">
             <ul>
+                @if (!isLoggedIn) {
                 <li>
                     <a routerLink="user/login">Login</a>
                 </li>
                 <li>
                     <a routerLink="user/register">Register</a>
                 </li>
+                }@else {
+                <li>
+                    <a routerLink="user/profile">{{userName}} Profile</a>
+                </li>
+                <li (click)="logout()">
+                    <a routerLink="user/logout">Logout</a>
+                </li>
+                }
             </ul>
         </div>
     </div>
