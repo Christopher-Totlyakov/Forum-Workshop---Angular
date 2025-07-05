@@ -1,5 +1,7 @@
 <main>
+    @if(!isLoggedIn) {
     <app-welcome-component [isLoggedIn]="isLoggedIn"></app-welcome-component>
+    }
     @if(isLoading) {
         <app-loader/>
     }
@@ -21,7 +23,13 @@
                                 </div>
                             </div>
                             <div class="subscribers">
-                                <!-- <button class="subscribe">Subscribe</button> -->
+                                @if (isLoggedIn) {
+                                    @if (isSubscribed(theme)) {
+                                        <button class="unsubscribe">Unsubscribe</button>
+                                    }@else {
+                                        <button class="subscribe">Subscribe</button>
+                                    }
+                                }
                                 <p>Subscribers: <span>{{theme.subscribers?.length || 0}}</span></p>
                             </div>
                         </div>
