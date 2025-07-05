@@ -1,23 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Api } from '../../api';
 import { Theme } from '../../types/theme';
 import { Loader } from '../../shared/loader/loader';
 import { CommonModule } from '@angular/common';
 import { WelcomeComponent } from '../../shared/welcome-component/welcome-component';
 import { UserService } from '../../user/user-service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-themes-list',
-  imports: [Loader, CommonModule, WelcomeComponent],
+  imports: [Loader, CommonModule, WelcomeComponent, RouterModule],
   templateUrl: './themes-list.html',
   styleUrl: './themes-list.css'
 })
 export class ThemesList implements OnInit {
 
-  themes: Theme[] =[];
+  themes: Theme[] = [];
   isLoading: boolean = true;
   
-  constructor(private api: Api, private userService: UserService) {
+  constructor(private api: Api, private userService: UserService, private cdr: ChangeDetectorRef) {
   }
 
   get isLoggedIn(): boolean {
@@ -39,6 +40,7 @@ export class ThemesList implements OnInit {
         console.log(themes);
         this.themes = themes;
         this.isLoading = false;
+        this.cdr.markForCheck();
       },
       error: (err) => {
         console.error('Error fetching themes:', err);
